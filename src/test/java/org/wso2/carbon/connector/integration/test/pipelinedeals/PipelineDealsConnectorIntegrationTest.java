@@ -54,7 +54,7 @@ public class PipelineDealsConnectorIntegrationTest extends ConnectorIntegrationT
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("pipelinedeals-connector-1.0.0");
+        init("pipelinedeals-connector-1.0.1-SNAPSHOT");
 
         esbRequestHeadersMap = new HashMap<String, String>();
         apiRequestHeadersMap = new HashMap<String, String>();

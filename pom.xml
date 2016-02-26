@@ -135,7 +135,8 @@
     <scm>
         <connection>scm:git:https://github.com/wso2-extensions/esb-connector-pipelinedeals.git</connection>
         <url>https://github.com/wso2-extensions/esb-connector-pipelinedeals.git</url>
-        <developerConnection>scm:git:https://github.com/wso2-extensions/esb-connector-pipelinedeals
+        <developerConnection>
+            scm:git:https://github.com/wso2-extensions/esb-connector-pipelinedeals
         </developerConnection>
         <tag>HEAD</tag>
     </scm>

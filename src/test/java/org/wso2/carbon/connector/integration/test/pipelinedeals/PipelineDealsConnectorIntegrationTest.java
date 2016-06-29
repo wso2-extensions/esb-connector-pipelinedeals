@@ -54,7 +54,7 @@ public class PipelineDealsConnectorIntegrationTest extends ConnectorIntegrationT
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("pipelinedeals-connector-1.0.1-SNAPSHOT");
+        init("pipelinedeals-connector-1.0.1");
 
         esbRequestHeadersMap = new HashMap<String, String>();
         apiRequestHeadersMap = new HashMap<String, String>();
@@ -490,21 +490,9 @@ public class PipelineDealsConnectorIntegrationTest extends ConnectorIntegrationT
         esbRequestHeadersMap.put("Action", "urn:createPerson");
         RestResponse<JSONObject> esbRestResponse =
                 sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap, "esb_createPerson_negative.json");
+        Assert.assertEquals(esbRestResponse.getHttpStatusCode(), 422);
         final JSONArray esbRestResponseArray = new JSONArray(esbRestResponse.getBody().getString("output"));
-
-        final String apiEndpoint = apiEndpointUrl + "/people.json" + authString;
-        RestResponse<JSONObject> apiRestResponse =
-                sendJsonRestRequest(apiEndpoint, "POST", apiRequestHeadersMap, "api_createPerson_negative.json");
-        final JSONArray apiRestResponseArray = new JSONArray(apiRestResponse.getBody().getString("output"));
-
-        Assert.assertEquals(esbRestResponse.getHttpStatusCode(), apiRestResponse.getHttpStatusCode());
-        Assert.assertEquals(esbRestResponseArray.getJSONObject(0).getString("humanized_field"), apiRestResponseArray
-                .getJSONObject(0).getString("humanized_field"));
-        Assert.assertEquals(esbRestResponseArray.getJSONObject(0).getString("field"), apiRestResponseArray
-                .getJSONObject(0).getString("field"));
-        Assert.assertEquals(esbRestResponseArray.getJSONObject(0).getString("msg"), apiRestResponseArray.getJSONObject(
-                0).getString("msg"));
-
+        Assert.assertEquals(esbRestResponseArray.getJSONObject(0).getString("humanized_field").toString(), "Email");
     }
 
     /**

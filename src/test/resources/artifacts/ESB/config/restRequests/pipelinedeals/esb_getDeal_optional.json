@@ -1,11 +1,6 @@
 {
   "apiUrl": "%s(apiUrl)",
   "apiKey": "%s(apiKey)",
-  "dealId":
-  %
-  s
-  (
-  dealId
-  ),
+  "dealId": %s(dealId),
   "attributes": "name"
 }

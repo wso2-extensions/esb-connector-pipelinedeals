@@ -4,7 +4,7 @@
     "category": "Customer Relationship Management",
     "documentationUrl": "https://docs.wso2.com/display/ESBCONNECTORS/PipelineDeals+Connector",
     "description": "The PipelineDeals connector allows you to access the PipelineDeals REST API through the WSO2 ESB. PipelineDeals is a Customer Relationship Management Software and Sales Acceleration Toolkit designed to make selling as simple and effective as possible.",
-    "status": "Unsupported",
+    "status": "Active",
     "labels": [
         "connector"
     ],
